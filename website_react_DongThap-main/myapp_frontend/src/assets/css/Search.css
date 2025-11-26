@@ -1,0 +1,62 @@
+
+/* Search box góc phải */
+.search-box {
+  position: absolute;
+  bottom: 20px;   /* cách đáy ảnh 20px */
+  right: 20px;    /* cách mép phải 20px */
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px 20px;
+  border-radius: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  min-width: 200px;
+}
+
+.search-button {
+  background: #f01e91;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.search-button:hover {
+  background: #cc006f;
+}
+
+
+.suggestions {
+  position: absolute;
+  top: 100%;   /* hiển thị ngay dưới ô input */
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  list-style: none;
+  margin: 5px 0 0;
+  padding: 0;
+  z-index: 1000;
+}
+
+.suggestions li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.suggestions li:hover {
+  background: #f0f0f0;
+}
+
+

@@ -1,0 +1,83 @@
+/* Reset margin mặc định */
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+/* Header chiếm full chiều ngang và dính trên cùng */
+header {
+  width: 100%;
+  position: sticky; /* hoặc fixed nếu muốn nó luôn ở trên khi cuộn */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #d78aa2;
+  background: linear-gradient(to right, #bc5790, #e9c8dc);
+  padding: 12px 20px;
+  box-sizing: border-box;
+}
+
+
+
+/* Menu trái và phải */
+.nav-left ul,
+.nav-right ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-left li,
+.nav-right li {
+  display: flex;
+  align-items: center;
+  color: #981313;
+}
+
+/* Link chung */
+.nav-left a,
+.nav-right a {
+  text-decoration: none;
+  color: #fcfcfc;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.nav-left a:hover,
+.nav-right a:hover {
+  background: #782f42;
+  color: #fff;
+}
+
+/* Button log */
+.nav-right button {
+  background: #3978e6;
+  border: none;
+  padding: 6px 12px;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.nav-right button:hover {
+  background: #d62828;
+}
+
+
+
+
+.nav-right a.login-link {
+  color: #cb1414 !important;
+  font-weight: bold;
+}
+

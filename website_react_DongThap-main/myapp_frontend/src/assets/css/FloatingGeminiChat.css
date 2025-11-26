@@ -1,0 +1,128 @@
+/* FloatingGeminiChat.css */
+
+/* Nút chat nổi */
+.floating-btn {
+  position: fixed;
+  z-index: 50;
+  right: 1rem;
+  top: 33%;
+}
+
+/* Nút chính */
+.floating-btn button {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: #7a81dd; /* màu xanh lá */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.floating-btn button:hover {
+  transform: scale(1.1);
+  background-color: #4b43b5;
+}
+
+/* Popup chat */
+.floating-chatbox {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 20rem;
+  height: 24rem;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Khi mở chat */
+.floating-chatbox.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Header chat */
+.floating-chatbox .chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  font-weight: bold;
+}
+
+/* Nội dung chat */
+.floating-chatbox .chat-messages {
+  flex: 1;
+  padding: 0.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Tin nhắn */
+.floating-chatbox .chat-message {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.floating-chatbox .chat-message.user {
+  background-color: #bfdbfe; /* xanh nhạt */
+  align-self: flex-end;
+  text-align: right;
+}
+
+.floating-chatbox .chat-message.assistant {
+  background-color: #e5e7eb; /* xám nhạt */
+  align-self: flex-start;
+  text-align: left;
+}
+
+/* Input */
+.floating-chatbox .chat-input {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.floating-chatbox .chat-input input {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  font-size: 0.875rem;
+}
+
+.floating-chatbox .chat-input button {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.floating-chatbox .chat-input button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+

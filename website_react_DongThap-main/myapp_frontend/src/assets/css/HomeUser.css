@@ -1,0 +1,215 @@
+.home-main {
+  padding: 20px;
+}
+
+
+
+
+/* Layout chứa slideshow và danh sách tin */
+/* Desktop */
+.content-wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+
+/* Slideshow */
+.slideshow {
+   display: flex;
+  position: relative;
+  width: 40%;
+  height: 350px;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.slideshow-img {
+   max-width: 100%;
+  height: auto;   /* giữ đúng tỉ lệ gốc */
+  display: block;
+  object-fit: cover;
+  
+}
+
+
+.btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* Danh sách tin tức */
+.news-list {
+  width: 60%;
+  height: 320px;
+  overflow-y: scroll;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.news-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.news-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.news-list a {
+  text-decoration: none;
+  color: #333; /* chữ đen mặc định */
+}
+
+.news-list a:hover {
+  color: #007bff; /* xanh khi hover */
+}
+
+
+
+
+/* Layout 3 cột cho Góc nhìn / Phóng sự / Nhân sự mới */
+.news-sections {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* Block */
+.news-block {
+  border-top: 3px solid #e6007e; /* gạch màu */
+  padding-top: 10px;
+}
+
+/* Tiêu đề */
+.section-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Ảnh chính */
+.news-img {
+  width: 320px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Bài viết chính */
+.main-article {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #000;
+}
+
+
+.main-article a {
+  color: #333;          /* ép màu mặc định */
+  text-decoration: none;
+}
+
+.main-article:hover a {
+  color: #007bff;
+}
+
+/* Bài phụ */
+.sub-articles {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  
+}
+ 
+
+.sub-articles li {
+  margin-bottom: 6px;
+  font-size: 14px;
+  line-height: 1.4; /* dễ đọc hơn */
+  color: #333;      /* giữ màu xám đậm */
+  cursor: pointer;
+}
+
+/* Nếu có link trong bài phụ */
+.sub-articles li a {
+  color: #333;          /* ép màu mặc định */
+  text-decoration: none;
+}
+
+.sub-articles li:hover a {
+  color: #007bff;
+}
+
+
+
+/* tìm kiếm */
+/* Banner */
+#banner {
+  position: relative; /* để con absolute bám theo banner */
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.banner-image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+
+
+
+
+.title_DT {
+  text-align: center;
+  background: linear-gradient(90deg, #ff5fa2, #ff7bbf, #ff99cc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;       /* để lộ gradient */
+  font-weight: 800;
+  margin: 16px 0;
+}
+
+
+/* Mobile nhỏ hơn 768px */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column; /* xếp dọc */
+  }
+.slideshow, .news-list {
+    width: 100%; /* chiếm hết chiều ngang */
+  }
+
+  .news-sections {
+    grid-template-columns: 1fr; /* mỗi block 1 hàng */
+  }
+
+  .news-img {
+    width: 100%;
+    height: auto;
+  }
+}

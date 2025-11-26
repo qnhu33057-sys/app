@@ -1,0 +1,96 @@
+/* Banner */
+#banner img {
+  width: 100%;              /* nhỏ hơn full */
+  max-width: 100%;      /* không quá to */
+  height: 500px;            /* giữ nguyên tỷ lệ */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  margin: 0 auto;          /* căn giữa */
+  display: block;
+}
+
+/* Giới thiệu */
+#gioi-thieu {
+  padding: 10px 20px;
+}
+
+#gioi-thieu h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 60px;
+  color: #2c3e50;
+}
+
+#gioi-thieu > div {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap; /* để mobile tự xuống dòng */
+}
+
+#gioi-thieu > div > div {
+  flex: 1 1 45%;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#gioi-thieu h3 {
+  color: #d741b9;
+  margin-bottom: 10px;
+}
+
+/* Các mục nổi bật */
+#noi-bat {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+#noi-bat h2 {
+  font-size: 28px;
+  margin-bottom: 40px;
+  color: #2c3e50;
+}
+
+#noi-bat > div {
+  display: flex;
+  justify-content: center;
+  gap: 50px;            /* giãn cách xa nhau hơn */
+  flex-wrap: wrap;      /* mobile tự xuống dòng */
+}
+
+.card {
+  width: 320px;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;   /* giữ đúng tỉ lệ gốc */
+  display: block;  /* hiển thị đủ ảnh, không méo */
+  transition: transform 0.4s ease;
+}
+
+.card h3 {
+  padding: 15px;
+  font-size: 20px;
+  color: #34495e;
+}
+
+/* Hiệu ứng animation */
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.card:hover img {
+  transform: scale(1.08);
+}
+

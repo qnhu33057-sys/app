@@ -1,0 +1,568 @@
+/* Chỉ áp dụng cho trang login */
+.login-page {
+  font-family: Roboto, Arial, sans-serif;
+  background: url("http://bgfons.com/uploads/cloth/cloth_texture1068.jpg") center center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.login-page::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(244, 241, 244, 0.682);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Reset margin/padding cho toàn bộ element trong trang login */
+.login-page * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.auth-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-page form {
+  min-width: 420px;
+  max-width: 500px;
+  color: #fafafa;
+  border: 2px solid #35eaff;
+  box-shadow: inset 0 0 20px #00e5ff, 0 0 20px #00e5ff;
+  background-color: rgba(63, 63, 63, 0.15);
+  border-radius: 10px;
+  padding: 2.5rem;
+  position: relative;
+  backdrop-filter: blur(15px);
+  animation: formGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes formGlow {
+  0% {
+    box-shadow: inset 0 0 20px #00e5ff, 0 0 20px #00e5ff;
+  }
+  100% {
+    box-shadow: inset 0 0 25px #00e5ff, 0 0 30px #00e5ff;
+  }
+}
+
+.auth-page form::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #00e5ff, transparent, #35eaff, transparent, #00e5ff);
+  border-radius: 12px;
+  z-index: -1;
+  animation: borderRotate 4s linear infinite;
+}
+
+@keyframes borderRotate {
+  0% {
+    background: linear-gradient(0deg, #00e5ff, transparent, #35eaff, transparent, #00e5ff);
+  }
+  25% {
+    background: linear-gradient(90deg, #00e5ff, transparent, #35eaff, transparent, #00e5ff);
+  }
+  50% {
+    background: linear-gradient(180deg, #00e5ff, transparent, #35eaff, transparent, #00e5ff);
+  }
+  75% {
+    background: linear-gradient(270deg, #00e5ff, transparent, #35eaff, transparent, #00e5ff);
+  }
+  100% {
+    background: linear-gradient(360deg, #00e5ff, transparent, #35eaff, transparent, #00e5ff);
+  }
+}
+
+.auth-page h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #edfdff;
+  text-shadow: 0 0 20px #00e5ff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.auth-page h3::before {
+  content: '🔐';
+  display: block;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.auth-page label {
+  display: block;
+  margin: 1.2rem 0 0.5rem 0;
+  color: #fafafa;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-shadow: 0 0 8px #00e5ff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.auth-page label:first-of-type {
+  margin-top: 0;
+}
+
+/* Password wrapper for integrated toggle */
+.password-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.auth-page input {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid rgba(0, 229, 255, 0.3);
+  border-radius: 8px;
+  color: #fafafa;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Password inputs need extra padding for toggle button */
+.password-wrapper input {
+  padding-right: 3.5rem !important;
+}
+
+.auth-page input::placeholder {
+  color: rgba(250, 250, 250, 0.5);
+}
+
+.auth-page input:focus {
+  outline: none;
+  border-color: #00e5ff;
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+  color: #ffffff;
+}
+
+.auth-page input:hover {
+  border-color: #35eaff;
+  box-shadow: 0 2px 10px rgba(0, 229, 255, 0.2);
+}
+
+/* Password toggle button integrated inside input */
+.password-toggle {
+  position: absolute;
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #00e5ff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 0.3rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 10;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+}
+
+.password-toggle:hover {
+  background: rgba(0, 229, 255, 0.15);
+  color: #35eaff;
+  text-shadow: 0 0 10px #00e5ff;
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.password-toggle:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
+  opacity: 1;
+}
+
+.password-toggle:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Password strength indicator */
+.password-strength {
+  margin-top: 0.6rem;
+  height: 5px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 229, 255, 0.2);
+}
+
+.password-strength-fill {
+  height: 100%;
+  transition: all 0.5s ease;
+  border-radius: 2px;
+  position: relative;
+}
+
+.password-strength-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  animation: strengthPulse 2s ease-in-out infinite;
+}
+
+@keyframes strengthPulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+.password-strength-fill.weak {
+  width: 33%;
+  background: linear-gradient(45deg, #f44336, #d32f2f);
+  box-shadow: 0 0 10px rgba(244, 67, 54, 0.5);
+}
+
+.password-strength-fill.medium {
+  width: 66%;
+  background: linear-gradient(45deg, #ff9800, #f57c00);
+  box-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
+}
+
+.password-strength-fill.strong {
+  width: 100%;
+  background: linear-gradient(45deg, #4caf50, #388e3c);
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.password-strength-text {
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+  text-align: right;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.password-strength-text.weak {
+  color: #ffcdd2;
+  text-shadow: 0 0 5px #f44336;
+}
+
+.password-strength-text.medium {
+  color: #ffe0b2;
+  text-shadow: 0 0 5px #ff9800;
+}
+
+.password-strength-text.strong {
+  color: #c8e6c9;
+  text-shadow: 0 0 5px #4caf50;
+}
+
+/* Confirm password validation */
+.confirm-password-status {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: right;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.confirm-password-status.match {
+  color: #c8e6c9;
+  text-shadow: 0 0 8px #4caf50;
+}
+
+.confirm-password-status.no-match {
+  color: #ffcdd2;
+  text-shadow: 0 0 8px #f44336;
+}
+
+.auth-page button[type="submit"] {
+  width: 100%;
+  padding: 1.2rem;
+  margin-top: 2rem;
+  background: linear-gradient(45deg, #f44336, #d32f2f);
+  border: 2px solid #f44336;
+  box-shadow: inset 0 0 15px rgba(244, 67, 54, 0.3), 0 0 20px rgba(244, 67, 54, 0.4);
+  border-radius: 8px;
+  color: #fee;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px #f00;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-page button[type="submit"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.auth-page button[type="submit"]:hover:not(:disabled) {
+  background: linear-gradient(45deg, #d32f2f, #f44336);
+  box-shadow: inset 0 0 20px rgba(244, 67, 54, 0.4), 0 0 25px rgba(244, 67, 54, 0.6);
+  transform: translateY(-2px);
+}
+
+.auth-page button[type="submit"]:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+.auth-page button[type="submit"]:active:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: inset 0 0 15px rgba(244, 67, 54, 0.3), 0 0 15px rgba(244, 67, 54, 0.4);
+}
+
+.auth-page button[type="submit"]:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  background: linear-gradient(45deg, #666, #555);
+  border-color: #666;
+  box-shadow: inset 0 0 10px rgba(102, 102, 102, 0.3), 0 0 10px rgba(102, 102, 102, 0.3);
+  text-shadow: 0 0 5px #666;
+}
+
+/* Link styling */
+.auth-page div:last-child {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 229, 255, 0.3);
+  color: #fafafa;
+  font-size: 0.95rem;
+}
+
+.auth-page div:last-child a {
+  color: #00e5ff;
+  text-decoration: none;
+  font-weight: 600;
+  text-shadow: 0 0 10px #00e5ff;
+  transition: all 0.3s ease;
+  position: relative;
+  margin-left: 0.5rem;
+}
+
+.auth-page div:last-child a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 50%;
+  background: linear-gradient(45deg, #00e5ff, #35eaff);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px #00e5ff;
+}
+
+.auth-page div:last-child a:hover {
+  color: #35eaff;
+  text-shadow: 0 0 15px #00e5ff;
+}
+
+.auth-page div:last-child a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Input focus effects with background icons */
+.auth-page input[type="text"]:focus:not(.password-wrapper input) {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIwIDIxVjE5QzIwIDE3LjkzOTEgMTkuNTc4NiAxNi45MjE3IDE4LjgyODQgMTYuMTcxNkMxOC4wNzgzIDE1LjQyMTQgMTcuMDYwOSAxNSAxNiAxNUg4QzYuOTM5MTMgMTUgNS45MjE3MiAxNS40MjE0IDUuMTcxNTcgMTYuMTcxNkM0LjQyMTQzIDE2LjkyMTcgNCAxNy45MzkxIDQgMTlWMjFNMTYgN0MxNiA5LjIwOTE0IDE0LjIwOTEgMTEgMTIgMTFDOS43OTA4NiAxMSA4IDkuMjA5MTQgOCA3QzggNC43OTA4NiA5Ljc5MDg2IDMgMTIgM0MxNC4yMDkxIDMgMTYgNC43OTA4NiAxNiA3WiIgc3Ryb2tlPSIjMDBlNWZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K');
+  background-repeat: no-repeat;
+  background-position: right 4rem center;
+  background-size: 20px;
+}
+
+/* Loading state for submit button */
+.auth-page button.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  border: 2px solid transparent;
+  border-top: 2px solid #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Enhanced animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.auth-page form:hover {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .auth-page {
+    padding: 1rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+  
+  .auth-page form {
+    min-width: 320px;
+    max-width: 100%;
+    padding: 2rem 1.5rem;
+  }
+  
+  .auth-page h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .auth-page input {
+    padding: 0.8rem 1rem;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  .password-wrapper input {
+    padding-right: 3rem !important;
+  }
+  
+  .password-toggle {
+    right: 0.6rem;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.2rem;
+  }
+  
+  .auth-page button[type="submit"] {
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-page form {
+    min-width: 280px;
+    padding: 1.5rem 1rem;
+  }
+  
+  .auth-page h3 {
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+  }
+  
+  .auth-page h3::before {
+    font-size: 2rem;
+  }
+  
+  .auth-page label {
+    font-size: 0.9rem;
+    margin: 1rem 0 0.4rem 0;
+  }
+  
+  .auth-page input {
+    padding: 0.7rem 0.8rem;
+  }
+  
+  .password-wrapper input {
+    padding-right: 2.8rem !important;
+  }
+  
+  .password-toggle {
+    right: 0.5rem;
+    width: 1.8rem;
+    height: 1.8rem;
+    font-size: 1.1rem;
+  }
+  
+  .auth-page button[type="submit"] {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+}
+
+/* Focus states for better accessibility */
+.auth-page input:focus {
+  outline: 2px solid rgba(0, 229, 255, 0.5);
+  outline-offset: 2px;
+}
+
+.password-toggle:focus {
+  outline: 2px solid rgba(0, 229, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .auth-page form {
+    border-width: 3px;
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+  
+  .auth-page input {
+    border-width: 3px;
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  .password-toggle {
+    border: 2px solid #00e5ff;
+  }
+}

@@ -1,0 +1,68 @@
+/* Container chính */
+.langhoa-container {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr; /* Ảnh 1 phần, nội dung 1.3 phần */
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #fff;
+  font-family: "Roboto", Arial, sans-serif;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* Ảnh */
+.langhoa-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.caption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Nội dung */
+.langhoa-content h1 {
+  font-family: "Merriweather", serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  border-bottom: 3px solid #e63946;
+  padding-bottom: 0.5rem;
+  color: #1d3557;
+}
+
+.langhoa-content p {
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.langhoa-content strong {
+  color: #e63946;
+}
+
+/* Drop-cap chữ cái đầu tiên như báo giấy */
+.langhoa-content p:first-letter {
+  font-size: 2rem;
+  font-weight: bold;
+  float: left;
+  margin-right: 6px;
+  color: #1d3557;
+}
+
+/* Responsive: màn nhỏ thì xếp dọc */
+@media (max-width: 768px) {
+  .langhoa-container {
+    grid-template-columns: 1fr;
+  }
+
+  .langhoa-content h1 {
+    font-size: 1.6rem;
+  }
+}

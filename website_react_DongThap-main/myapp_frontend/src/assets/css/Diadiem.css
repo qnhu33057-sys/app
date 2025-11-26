@@ -1,0 +1,63 @@
+#dia-diem {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+#dia-diem h2 {
+  font-size: 28px;
+  margin-bottom: 40px;
+  color: #2c3e50;
+}
+
+.dia-diem-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 300px;
+  background: #dcd4d4d0;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;   /* giữ đúng tỉ lệ gốc */
+  display: block;
+}
+
+.card-content {
+  padding: 5px;
+}
+
+.card-content h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #180105;
+}
+
+.card-content p {
+  font-size: 14px;
+  color: #140104;
+  line-height: 1.4;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.card:hover img {
+  transform: scale(1.08);
+}
+
